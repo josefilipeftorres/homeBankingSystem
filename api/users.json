@@ -1,0 +1,9 @@
+[
+  {
+    "name": "John Doe",
+    "email": "johndoe@email.com",
+    "password": "$2b$10$uTDqM7jDRobjZ52mFRD42OBeh.VGJhXBaBg3Lwh0eg./cndsC86vm",
+    "balance": 0,
+    "movements": []
+  }
+]

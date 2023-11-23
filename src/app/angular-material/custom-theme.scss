@@ -1,0 +1,91 @@
+@use '@angular/material' as mat;
+@include mat.core();
+
+$neon-blue-palette: (
+    50: #e9e9fd,
+    100: #c7c8f8,
+    200: #a1a5f4,
+    300: #7781f0,
+    400: #5763ec,
+    500: #3445e6,
+    600: #2f3cda,
+    700: #2431ce,
+    800: #1724c3,
+    900: #0c05aa,
+    contrast: (
+        50: rgba(black, 0.87),
+        100: rgba(black, 0.87),
+        200: rgba(black, 0.87),
+        300: rgba(black, 0.87),
+        400: rgba(black, 0.87),
+        500: white,
+        600: white,
+        700: white,
+        800: white,
+        900: white,
+    )
+);
+
+$ghost-white-palette: (
+    50: #f0f3ff,
+    100: #d8e0ff,
+    200: #bfcdff,
+    300: #a5b7ff,
+    400: #8ea2fd,
+    500: #7b8efb,
+    600: #7384ef,
+    700: #6977e0,
+    800: #626dd4,
+    900: #5559be,
+    contrast: (
+        50: rgba(black, 0.87),
+        100: rgba(black, 0.87), 
+        200: rgba(black, 0.87),
+        300: rgba(black, 0.87),
+        400: rgba(black, 0.87),
+        500: white,
+        600: white,
+        700: white,
+        800: white,
+        900: white,
+    )
+);
+
+$vivid-sky-blue-warn: (
+    50: #e1f8fd,
+    100: #b3eef9,
+    200: #81e3f5,
+    300: #4bd7f0,
+    400: #19ceeb,
+    500: #00c5e6,
+    600: #00b5d2,
+    700: #00a0b7,
+    800: #008c9e,
+    900: #006871,
+    contrast: (
+        50: rgba(black, 0.87),
+        100: rgba(black, 0.87),
+        200: rgba(black, 0.87),
+        300: rgba(black, 0.87),
+        400: rgba(black, 0.87),
+        500: white,
+        600: white,
+        700: white,
+        800: white,
+        900: white,
+    )
+);
+
+$custom-primary: mat.define-palette($neon-blue-palette, 400);
+$custom-accent: mat.define-palette($ghost-white-palette, 50);
+$custom-warn: mat.define-palette($vivid-sky-blue-warn, 300);
+
+$custom-theme: mat.define-light-theme((
+    color: (
+        primary: $custom-primary,
+        accent: $custom-accent,
+        warn: $custom-warn,
+    )
+));
+
+@include mat.all-component-themes($custom-theme);

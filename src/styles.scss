@@ -1,1 +1,52 @@
+@import "./app/angular-material/custom-theme.scss";
+
 /* You can add global styles to this file, and also import other style files */
+
+:root {
+  --primary-color: $custom-primary-400;
+}
+
+html,
+body {
+  margin: 0;
+  font-family: "Helvetica Neue", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
+.btn {
+  display: inline-block;
+  color: #fff;
+  // padding: 10px 20px;
+  // margin: 5px;
+  font-size: 15px;
+  font-family: inherit;
+
+  &:focus {
+      outline: none;
+  }
+
+  &:active {
+      transform: scale(0.98);
+  }
+}
+
+.btn-block {
+  display: block;
+  width: 100%;
+}
+
+.form-control {
+  >input {
+      width: 100%;
+      height: 40px;
+      margin: 5px;
+      padding: 3px 7px;
+      font-size: 17px;
+  }
+}
