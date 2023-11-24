@@ -5,5 +5,12 @@
     "password": "$2b$10$uTDqM7jDRobjZ52mFRD42OBeh.VGJhXBaBg3Lwh0eg./cndsC86vm",
     "balance": 0,
     "movements": []
+  },
+  {
+    "name": "Demo",
+    "email": "demoTest@email.com",
+    "password": "$2b$10$jBYV6nnSEL0mYPRYWDTOeej6M5Eh1iXZXioEcHFGSOJbSvLY0Amhi",
+    "balance": 0,
+    "movements": []
   }
 ]

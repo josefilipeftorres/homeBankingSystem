@@ -1,4 +1,4 @@
-.login-form{
+.login-form {
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -9,17 +9,39 @@
 .container {
     max-width: 350px;
     margin: 30px auto;
-    overflow: auto;
-    min-height: 300px;
-    border: 1px solid steelblue;
     border-radius: 5px;
     padding: 20px;
     background-color: #fff;
-  }
-
-.container {
+    border: 1px solid black;
     position: relative;
     z-index: 2;
+}
+
+h1 {
+    text-align: center;
+    padding: 10px;
+    position: relative;
+    z-index: 2;
+}
+
+p {
+    text-align: center;
+    padding: 10px;
+    font-size: 14px;
+}
+
+.warn {
+    color: red;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+
+    &:hover {
+        cursor: pointer;
+        color: #1e90ff;
+    }
 }
 
 .overlay {
