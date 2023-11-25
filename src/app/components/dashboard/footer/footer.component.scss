@@ -1,0 +1,23 @@
+footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    padding: 10px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: transform 0.15s ease-in-out;
+
+    &:hover {
+        transform: rotate(360deg) scale(1.2);
+    }
+}

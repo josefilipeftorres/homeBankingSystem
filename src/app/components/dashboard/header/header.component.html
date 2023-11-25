@@ -1,0 +1,21 @@
+<header class="nav-bar">
+    <div class="containerHeader">
+        <div class="brand">
+            <a routerLink="/dashboard">
+                <mat-icon>home</mat-icon>
+            </a>
+            <div class="brand-name">
+                <h1>HomeBanking</h1>
+                <p>System</p>
+            </div>
+        </div>
+        <nav>
+            <div class="options">
+                <button type="button" mat-raised-button color="primary" class="btn btn-block">Deposit</button>
+                <button type="button" mat-raised-button color="primary" class="btn btn-block">Withdraw</button>
+                <button type="button" mat-raised-button color="primary" class="btn btn-block" (click)="logOut()">Log
+                    Out</button>
+            </div>
+        </nav>
+    </div>
+</header>

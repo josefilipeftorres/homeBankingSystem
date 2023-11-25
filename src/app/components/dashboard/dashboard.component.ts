@@ -6,9 +6,4 @@ import { Component } from '@angular/core';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent {
-
-  logOut() {
-    localStorage.removeItem('token');
-    window.location.reload();
-  }
 }

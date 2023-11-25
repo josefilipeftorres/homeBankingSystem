@@ -12,8 +12,6 @@ export class AppComponent implements OnInit {
     private router: Router,
   ) { }
   ngOnInit() {
-    console.log('AppComponent initialized');
-
     // Check if the user is already logged in
     const storedToken = localStorage.getItem('token');
 
