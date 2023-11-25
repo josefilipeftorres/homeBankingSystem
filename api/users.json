@@ -8,7 +8,7 @@
   },
   {
     "name": "Demo",
-    "email": "demoTest@email.com",
+    "email": "demotest@email.com",
     "password": "$2b$10$jBYV6nnSEL0mYPRYWDTOeej6M5Eh1iXZXioEcHFGSOJbSvLY0Amhi",
     "balance": 0,
     "movements": []
