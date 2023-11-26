@@ -118,6 +118,31 @@ const init = async () => {
     },
   });
 
+  server.route({
+    method: "GET",
+    path: "/user",
+    handler: async (request, h) => {
+      try {
+        // Get the token from the request header
+        const token = request.headers.authorization.split(" ")[1];
+
+        // Verify the token
+        const decodedToken = jwt.verify(token, process.env.JWT_SECRET_KEY);
+
+        // Read existing users from the file
+        const users = await readUsersFromFile();
+
+        // Check if the user exists
+        const user = users.find((user) => user.email === decodedToken.email);
+
+        return h.response(user).code(200);
+      } catch (error) {
+        console.error(error);
+        return h.response({ message: "Internal server error a" }).code(500);
+      }
+    },
+  });
+
   await server.start();
   console.log("Server running on %s", server.info.uri);
 };
