@@ -21,4 +21,11 @@ export class ApiService {
   loginUser(user: any): Observable<any> {
     return this.http.post(`${this.API_URL}/login`, user);
   }
+
+  // Get Info of the logged in user
+  getUserInfo(): Observable<any> {
+    const token = localStorage.getItem('token');
+    const headers = { 'Authorization': `Bearer ${token}` };
+    return this.http.get(`${this.API_URL}/user`, { headers });
+  }
 }

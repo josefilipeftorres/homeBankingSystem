@@ -1,1 +1,45 @@
-<p>content works!</p>
+<div class="content">
+    <main>
+        <mat-card-title class="mat-elevation-z8">
+            <div class="details">
+                <h1>Welcome, {{ accountName }}</h1>
+                <h2>Balance: {{ balance | currency }}</h2>
+            </div>
+            <div class="actions">
+                <button type="button" mat-raised-button color="primary" class="btn btn-block">
+                    Deposit / Withdraw
+                </button>
+            </div>
+        </mat-card-title>
+        <div class="movements">
+            <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+                <!-- Type of movement (deposit or withdraw) -->
+                <ng-container matColumnDef="operation">
+                    <mat-header-cell *matHeaderCellDef> Operation </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.operation}} </mat-cell>
+                </ng-container>
+
+                <!-- Amount of money -->
+                <ng-container matColumnDef="amount">
+                    <mat-header-cell *matHeaderCellDef> Amount </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.amount}} </mat-cell>
+                </ng-container>
+
+                <!-- Balance after the movement -->
+                <ng-container matColumnDef="balance">
+                    <mat-header-cell *matHeaderCellDef> Balance </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.balance}} </mat-cell>
+                </ng-container>
+
+                <!-- Date of the movement -->
+                <ng-container matColumnDef="date">
+                    <mat-header-cell *matHeaderCellDef> Date </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.date}} </mat-cell>
+                </ng-container>
+
+                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+            </mat-table>
+        </div>
+    </main>
+</div>
