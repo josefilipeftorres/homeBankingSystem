@@ -1,11 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { ModalComponent } from './modal/modal.component';
-
-import { faArrowUp, faArrowDown, faSync } from '@fortawesome/free-solid-svg-icons';
 import { ApiService } from 'src/app/services/api.service';
-import { MatDialog } from '@angular/material/dialog';
 
 export interface MovementElement {
   operation: string;
@@ -20,9 +16,6 @@ export interface MovementElement {
   styleUrls: ['./content.component.scss']
 })
 export class ContentComponent implements OnInit {
-  faArrowUp = faArrowUp;
-  faArrowDown = faArrowDown;
-  faSync = faSync;
 
   constructor(
     private apiService: ApiService,
@@ -41,6 +34,7 @@ export class ContentComponent implements OnInit {
       },
       error: (err: any) => {
         console.log("Error fetching user info: ", err);
+        localStorage.removeItem('token');
         this.router.navigate(['/login']);
       },
     })
