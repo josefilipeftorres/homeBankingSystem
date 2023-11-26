@@ -5,7 +5,7 @@
 @include mat.core();
 
 $homebanking-system-primary: mat.define-palette(mat.$indigo-palette);
-$homebanking-system-accent: mat.define-palette(mat.$blue-grey-palette, A200, A100, A400);
+$homebanking-system-accent: mat.define-palette(mat.$blue-palette, A200, A100, A400);
 
 $homebanking-system-warn: mat.define-palette(mat.$red-palette);
 

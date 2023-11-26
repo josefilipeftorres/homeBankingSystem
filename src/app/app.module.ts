@@ -14,6 +14,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { HeaderComponent } from './components/dashboard/header/header.component';
 import { ContentComponent } from './components/dashboard/content/content.component';
 import { FooterComponent } from './components/dashboard/footer/footer.component';
+import { ModalComponent } from './components/dashboard/content/modal/modal.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { FooterComponent } from './components/dashboard/footer/footer.component'
     DashboardComponent,
     HeaderComponent,
     ContentComponent,
-    FooterComponent
+    FooterComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,

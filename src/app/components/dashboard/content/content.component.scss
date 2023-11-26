@@ -24,7 +24,6 @@ mat-card-title {
 mat-table {
     display: flex;
     flex-direction: column;
-    overflow: scroll;
     justify-content: space-between;
     padding: 20px;
     text-align: center;
@@ -37,11 +36,4 @@ mat-table {
     padding: 20px;
     margin-top: 20px;
     border-radius: 5px;
-}
-
-.mov {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
 }

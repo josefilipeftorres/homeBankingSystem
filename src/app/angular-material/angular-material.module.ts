@@ -10,7 +10,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatDividerModule } from '@angular/material/divider';
-import { MatTableDataSourcePaginator } from '@angular/material/table';
+import { MatRadioModule } from '@angular/material/radio';
 
 // For components using angular-animations
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -29,6 +29,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
         MatTableModule,
         MatSlideToggleModule,
         MatDividerModule,
+        MatRadioModule,
     ],
     exports: [
         MatInputModule,
@@ -40,6 +41,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
         MatTableModule,
         MatSlideToggleModule,
         MatDividerModule,
+        MatRadioModule,
     ],
 })
 export class AngularMaterialModule { }

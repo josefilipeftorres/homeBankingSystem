@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
+import { ModalComponent } from './modal/modal.component';
 
 import { faArrowUp, faArrowDown, faSync } from '@fortawesome/free-solid-svg-icons';
 import { ApiService } from 'src/app/services/api.service';
+import { MatDialog } from '@angular/material/dialog';
 
 export interface MovementElement {
   operation: string;
@@ -9,19 +13,6 @@ export interface MovementElement {
   balance: number;
   date: string;
 }
-
-const ELEMENT_DATA: MovementElement[] = [
-  { operation: 'Depósito', amount: 1000, balance: 1000, date: '2020-01-01' },
-  { operation: 'Extracción', amount: 500, balance: 500, date: '2020-01-01' },
-  { operation: 'Depósito', amount: 1000, balance: 1000, date: '2020-01-01' },
-  { operation: 'Extracción', amount: 500, balance: 500, date: '2020-01-01' },
-  { operation: 'Depósito', amount: 1000, balance: 1000, date: '2020-01-01' },
-  { operation: 'Extracción', amount: 500, balance: 500, date: '2020-01-01' },
-  { operation: 'Depósito', amount: 1000, balance: 1000, date: '2020-01-01' },
-  { operation: 'Extracción', amount: 500, balance: 500, date: '2020-01-01' },
-  { operation: 'Depósito', amount: 1000, balance: 1000, date: '2020-01-01' },
-];
-
 
 @Component({
   selector: 'app-content',
@@ -33,25 +24,38 @@ export class ContentComponent implements OnInit {
   faArrowDown = faArrowDown;
   faSync = faSync;
 
-  constructor(private apiService: ApiService) { }
+  constructor(
+    private apiService: ApiService,
+    private router: Router,
+  ) { }
 
   accountName: string = '';
   balance: number = 0;
-  movements: MovementElement[] = [];
 
   ngOnInit(): void {
     this.apiService.getUserInfo().subscribe({
       next: (user: any) => {
         this.accountName = user.name;
         this.balance = user.balance;
-        this.movements = user.movements;
+        this.dataSource = user.movements.slice(-10).reverse();
       },
       error: (err: any) => {
         console.log("Error fetching user info: ", err);
+        this.router.navigate(['/login']);
       },
     })
   }
 
   displayedColumns: string[] = ['operation', 'amount', 'balance', 'date'];
-  dataSource = ELEMENT_DATA;
+  dataSource: MovementElement[] = [];
+
+  modal: boolean = false;
+
+  openModal() {
+    this.modal = true;
+  }
+
+  closeModal() {
+    this.modal = false;
+  }
 }

@@ -1,16 +1,1 @@
-[
-  {
-    "name": "John Doe",
-    "email": "johndoe@email.com",
-    "password": "$2b$10$uTDqM7jDRobjZ52mFRD42OBeh.VGJhXBaBg3Lwh0eg./cndsC86vm",
-    "balance": 0,
-    "movements": []
-  },
-  {
-    "name": "Demo",
-    "email": "demotest@email.com",
-    "password": "$2b$10$jBYV6nnSEL0mYPRYWDTOeej6M5Eh1iXZXioEcHFGSOJbSvLY0Amhi",
-    "balance": 0,
-    "movements": []
-  }
-]
+[{"name":"John Doe","email":"johndoe@email.com","password":"$2b$10$uTDqM7jDRobjZ52mFRD42OBeh.VGJhXBaBg3Lwh0eg./cndsC86vm","balance":130,"movements":[{"operation":"Deposit","amount":100,"balance":100,"date":"2023-11-26T21:15:17.089Z"},{"operation":"Widthdraw","amount":100,"balance":0,"date":"2023-11-26T21:15:59.726Z"},{"operation":"Deposit","amount":100,"balance":100,"date":"2023-11-26T21:18:18.428Z"},{"operation":"Deposit","amount":50,"balance":150,"date":"2023-11-26T21:43:47.442Z"},{"operation":"Widthdraw","amount":20,"balance":130,"date":"2023-11-26T21:44:03.049Z"}]},{"name":"Demo","email":"demotest@email.com","password":"$2b$10$jBYV6nnSEL0mYPRYWDTOeej6M5Eh1iXZXioEcHFGSOJbSvLY0Amhi","balance":355,"movements":[{"operation":"Deposit","amount":500,"balance":500,"date":"2023-11-26T21:48:22.227Z"},{"operation":"Widthdraw","amount":50,"balance":450,"date":"2023-11-26T21:48:31.729Z"},{"operation":"Deposit","amount":25,"balance":475,"date":"2023-11-26T21:48:43.557Z"},{"operation":"Deposit","amount":10,"balance":485,"date":"2023-11-26T21:48:56.313Z"},{"operation":"Widthdraw","amount":10,"balance":475,"date":"2023-11-26T21:48:58.893Z"},{"operation":"Widthdraw","amount":50,"balance":425,"date":"2023-11-26T21:49:03.828Z"},{"operation":"Deposit","amount":40,"balance":465,"date":"2023-11-26T21:49:09.094Z"},{"operation":"Widthdraw","amount":60,"balance":405,"date":"2023-11-26T21:49:12.603Z"},{"operation":"Widthdraw","amount":50,"balance":355,"date":"2023-11-26T21:49:16.128Z"},{"operation":"Deposit","amount":40,"balance":395,"date":"2023-11-26T21:49:20.788Z"},{"operation":"Widthdraw","amount":40,"balance":355,"date":"2023-11-26T21:52:09.044Z"}]},{"name":"José","email":"jose@email.com","password":"$2b$10$o1GjKAbxRreyknb4XB3x..EUnYqoM3IpvP1C4QPZHTlCQPYbuppEW","balance":500,"movements":[{"operation":"Deposit","amount":500,"balance":500,"date":"2023-11-26T21:56:41.276Z"}]}]

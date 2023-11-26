@@ -28,4 +28,20 @@ export class ApiService {
     const headers = { 'Authorization': `Bearer ${token}` };
     return this.http.get(`${this.API_URL}/user`, { headers });
   }
+
+  // Do operation
+  doOperation(operationData: any): Observable<any> {
+    const token = localStorage.getItem('token');
+    const headers = { 'Authorization': `Bearer ${token}` };
+
+    if (operationData.operation === 'withdraw') {
+      const options = {
+        headers,
+        body: operationData,
+      };
+      return this.http.delete(`${this.API_URL}/funds`, options);
+    } else {
+      return this.http.post(`${this.API_URL}/funds`, operationData, { headers });
+    }
+  }
 }

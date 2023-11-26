@@ -143,6 +143,109 @@ const init = async () => {
     },
   });
 
+  server.route({
+    method: "POST",
+    path: "/funds",
+    handler: async (request, h) => {
+      try {
+        // Get the token from the request header
+        const token = request.headers.authorization.split(" ")[1];
+
+        // Verify the token
+        const decodedToken = jwt.verify(token, process.env.JWT_SECRET_KEY);
+
+        // Read existing users from the file
+        const users = await readUsersFromFile();
+
+        // Check if the user exists
+        const user = users.find((user) => user.email === decodedToken.email);
+
+        // Check if the user exists
+        if (user === undefined) {
+          return h.response({ message: "User not found" }).code(404);
+        }
+
+        // Check the operation
+        if (request.payload.operation !== "deposit") {
+          return h.response({ message: "Invalid operation" }).code(400);
+        }
+
+        // Update the user balance
+        user.balance += request.payload.amount;
+
+        // Add the movement to the user movements
+        user.movements.push({
+          operation: "Deposit",
+          amount: request.payload.amount,
+          balance: user.balance,
+          date: new Date(),
+        });
+
+        // Write the updated list of users to the file
+        await writeUsersToFile(users);
+
+        return h.response({ message: "Funds added" }).code(200);
+      } catch (error) {
+        console.error(error);
+        return h.response({ message: "Internal server error" }).code(500);
+      }
+    },
+  });
+
+  server.route({
+    method: "DELETE",
+    path: "/funds",
+    handler: async (request, h) => {
+      try {
+        // Get the token from the request header
+        const token = request.headers.authorization.split(" ")[1];
+
+        // Verify the token
+        const decodedToken = jwt.verify(token, process.env.JWT_SECRET_KEY);
+
+        // Read existing users from the file
+        const users = await readUsersFromFile();
+
+        // Check if the user exists
+        const user = users.find((user) => user.email === decodedToken.email);
+
+        // Check if the user exists
+        if (user === undefined) {
+          return h.response({ message: "User not found" }).code(404);
+        }
+
+        // Check the operation
+        if (request.payload.operation !== "withdraw") {
+          return h.response({ message: "Invalid operation" }).code(400);
+        }
+
+        // Check if the user has enough funds
+        if (user.balance < request.payload.amount) {
+          return h.response({ message: "Insufficient funds" }).code(400);
+        }
+
+        // Update the user balance
+        user.balance -= request.payload.amount;
+
+        // Add the movement to the user movements
+        user.movements.push({
+          operation: "Widthdraw",
+          amount: request.payload.amount,
+          balance: user.balance,
+          date: new Date(),
+        });
+
+        // Write the updated list of users to the file
+        await writeUsersToFile(users);
+
+        return h.response({ message: "Funds withdrawn" }).code(200);
+      } catch (error) {
+        console.error(error);
+        return h.response({ message: "Internal server error" }).code(500);
+      }
+    },
+  });
+
   await server.start();
   console.log("Server running on %s", server.info.uri);
 };
